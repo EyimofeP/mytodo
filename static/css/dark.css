@@ -1,0 +1,59 @@
+body{
+	background-color: #212121;
+}
+
+h3{
+	color:white;
+}
+
+.collection .collection-item {
+    background-color: #212121;
+    border-bottom: 1px solid #424242;
+    color: white;
+}
+
+.collection{
+	border: 1px solid #424242;
+}
+
+.sidenav {
+    background-color: #212121;
+}
+
+
+.sidenav li > a {
+    color: #fff;
+}
+
+.white-text {
+    color: #000 !important;
+}
+
+nav ul li {
+    color: white;
+}
+
+i{
+	color: white;
+}
+
+.sidenav li > a > i, .sidenav li > a > [class^="mdi-"], .sidenav li > a li > a > [class*="mdi-"], .sidenav li > a > i.material-icons {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+blockquote {
+	color: white;
+}
+
+/*Change slide color*/
+.slider .indicators .indicator-item.active{
+  background-color: #B71C1C;
+}
+/*Change color button*/
+.teal {
+    background-color: #000 !important;
+}

@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="{% static 'css/materialize-social.css' %}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/all.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!--<link rel="stylesheet" href="{% static 'css/dark.css' %}" />-->
+    <link rel="stylesheet" id="mystylesheet" href="{% static 'css/style.css' %}" />
     <link rel="icon" href="{% static 'img/favicon.jpg' %}" />
     <title>Mofe's ToDo App</title>
 </head>
 <body>
     <nav class="red darken-4" role="navigation">
         <div class="nav-wrapper container">
-          <a id="logo-container" href="/" class="brand-logo center">Mofe's ToDo App </a>
+          <a id="logo-container" href="/" class="brand-logo center">Mofe's ToDo </a>
           <ul class="right hide-on-med-and-down">
             <li
               {% if '/' == request.path %}
@@ -35,6 +36,9 @@
             <li><a href="#"></a></li>
             <li><a href="#"></a></li>
           </ul>
+          <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" onclick="toggle()">
+            <i class="material-icons">brightness_6</i>
+          </a>
         
         <ul id="slide-out" class="sidenav">
         <li>
@@ -66,5 +70,16 @@
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript">
+      function toggle(){
+     var el = document.getElementById("mystylesheet");
+     if (el.href.match("{% static 'css/style.css' %}")) {
+          el.href = "{% static 'css/dark.css' %}";
+     }
+     else {
+          el.href = "{% static 'css/style.css' %}"
+     }
+}
+    </script>
 </body>
 </html>
