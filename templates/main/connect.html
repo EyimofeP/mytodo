@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<h2>Eyimofe Ayo Pinnick</h2>
+	 <blockquote>
+      The Web Developer that meets up with your need
+    </blockquote>
+
+    <div class="row">
+    	<div class="hide-on-med-and-down">
+	    	<div class="col s12 m6 pull-l0">
+		    	<a href="mailto:eyimofe36@gmail.com" class="waves-effect waves-light btn-large google">
+					<i class="fab fa-google"></i> oogle Mail</a>
+				<p>
+		    	<a href="chat.whatsapp.com/+2348028769076" class="waves-effect waves-light btn-large whatsapp">
+					<i class="fab fa-whatsapp"></i>  WhatsApp</a>
+		    	</p>
+		    	<p>
+		    	<a href="www.instagram.com/pinnick_jnr/" class="waves-effect waves-light btn-large instagram">
+					<i class="fab fa-instagram"></i>  Pinnick_Jnr</a>
+				</p>
+				<p>
+		    	<a href="twitter.com/thegeekish_nerd/" class="waves-effect waves-light btn-large twitter">
+					<i class="fab fa-twitter"></i> TheGeekish_Nerd</a>
+				</p>
+				<a href="tel:+2347053468080" class="waves-effect waves-light btn-large phone">
+					<i class="fas fa-phone"></i> My Tel</a>
+				</p>
+	    	</div>
+    	</div>
+	   	<div class="col s12 m6 push-l0">
+	    	<div class="slider">
+        		<ul class="slides">
+        			<li>
+          				<img src="{% static 'img/favicon.jpg' %}" alt="">
+          				<div class="caption left-align">
+            				<h3>Who I Am</h3>
+            				<h5 class="light white-text ">I am Eyimofe Ayo Pinnick</h5>
+          				</div>
+        			</li>
+        			<li>
+          				<img src="{% static 'img/lap1.jpg' %}" alt="">
+          				<div class="caption center-align">
+            				<h3>What I do</h3>
+            				<h5 class="light black-text"><b>Web Scrapping??, The Dynamic Web Application of your dreams??, I've got you</b></h5>
+          				</div>
+        			</li>
+        			<li>
+          				<img src="{% static 'img/lagos.jpg' %}" alt="">
+          				<div class="caption right-align">
+            				<h3>Where I'm Based</h3>
+            				<h5 class="light grey-text text-darken-4">Lagos,Nigeria..<p class="light grey-text text-darken-4">I believe dreams come through</p></h5>
+          				</div>
+        			</li>
+        		</ul>
+       		</div>
+	   </div> 
+	</div>
+</div>
+{% endblock %}

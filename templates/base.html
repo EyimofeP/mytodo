@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/materialize-social.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'img/favicon.jpg' %}" />
+    <title>Mofe's ToDo App</title>
+</head>
+<body>
+    <nav class="red darken-4" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="/" class="brand-logo center">Mofe's ToDo App </a>
+          <ul class="right hide-on-med-and-down">
+            <li
+              {% if '/' == request.path %}
+                 class="active"
+              {% else %}
+                class=""
+              {% endif %}
+            ><a href="/">Home</a></li>        
+            <li
+              {% if 'main:connect' in request.path %}
+                class="active"
+              {% else %}
+                class=""
+              {% endif %}
+            ><a href="{% url 'main:connect' %}">Connect</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        
+        <ul id="slide-out" class="sidenav">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="{% static 'img/lagos.jpg' %}" style="height:200px;width: 300px;">
+            </div>
+            <img class="circle" src="{% static 'img/favicon.jpg' %}">
+            <span class="white-text name">Eyimofe Ayo Pinnick</span>
+            <a href="mailto:eyimofe36@gmail.com"><span class="white-text email">eyimofe36@gmail.com</span></a>
+          </div>
+        </li>
+        <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+        <li><a href="{% url 'main:connect' %}"><i class="material-icons">contacts</i>Connect With Me</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Let's Connect</a></li>
+        <li><a href="mailto:eyimofe36@gmail.com"><i class="fab fa-google"></i>Eyimofe36@gmail.com</a></li>
+        <li><a href="chat.whatsapp.com/+2348028769076"><i class="fab fa-whatsapp"></i>Anirejuoriste Pinnick Jnr</a></li>
+        <li><a href="www.instagram.com/pinnick_jnr/"><i class="fab fa-instagram"></i>Pinnick_Jnr</a></li>
+        <li><a href="twitter.com/thegeekish_nerd/"><i class="fab fa-twitter"></i>TheGeekish_Nerd</a></li>
+        <li><a href="tel:+2347053468080"><i class="fas fa-phone"></i>+234(0)-705-346-8080</a></li>
+      </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+    </nav>   
+      
+      {% block content %}
+      {% endblock %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
