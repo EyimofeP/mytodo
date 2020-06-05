@@ -12,7 +12,7 @@ def register(request):
 			username = form.cleaned_data.get('username')#Pulling Username from database
 			messages.success(request, f"New Guy Has Arrrived: Welcome {username} !!🥳🥳")#Sending message
 			login(request, user)#Logging in user
-			messages.info(request, f"Yo What's Up {username} !! 😁😁")
+			messages.info(request, f"Yo Wagwan Up {username} !! 😁😁")
 			return redirect("main:home")#Redirecting to homepage
 		else:#for message errors
 			for msg in form.error_messages:
@@ -35,7 +35,7 @@ def signin(request):
 			user = authenticate(username = username, password = password)
 			if user is not None:
 				login(request, user)#Logging in user
-				messages.info(request, f"Yo What's Up {username} !! 😁😁")
+				messages.info(request, f"Yo Wagwan {username} !! 😁😁")
 				return redirect("main:home")
 			else:
 				messages.error(request,"Invalid Username or Password")

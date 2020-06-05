@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 
 from main.models import Todo
+
+
 # Returns todo items from database to home page
 def home(request):
 	lists = Todo.objects.order_by("-added_date")
@@ -18,6 +20,7 @@ def home(request):
 def addTo(request):
 	currentdate = timezone.now()
 	content = request.POST["content"]
+	userid = request.user
 	created_content = Todo.objects.create(added_date = currentdate, text = content)
 	return HttpResponseRedirect("/")
 
@@ -29,3 +32,4 @@ def deleteTo(request, todo_id):
 
 def connect(request):
 	return render(request,"main/connect.html")
+

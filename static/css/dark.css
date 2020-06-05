@@ -57,3 +57,30 @@ blockquote {
 .teal {
     background-color: #000 !important;
 }
+
+.btn, .btn-large, .btn-small {
+    background-color: #B71C1C;
+    background: #B71C1C;
+}
+
+h1{
+	color: white;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #B71C1C;
+    -webkit-box-shadow: 0 1px 0 0 #B71C1C;
+    box-shadow: 0 1px 0 0 #B71C1C;
+}
+
+h6{
+	color: white;
+}
+
+strong{
+	color: red;
+}
+
+input[type=text]{
+	color: white;
+}
