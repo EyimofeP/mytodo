@@ -16,8 +16,11 @@
 <body>
     <nav class="red darken-4" role="navigation">
         <div class="nav-wrapper container">
-          <a id="logo-container" href="/" class="brand-logo center">Mofe's ToDo </a>
+          <a id="logo-container" href="/" class="brand-logo center">Mofe's ToDo</a>
+
           <ul class="right hide-on-med-and-down">
+          	<li></li>
+          	<li></li>
             <li
               {% if '/' == request.path %}
                  class="active"
@@ -26,15 +29,40 @@
               {% endif %}
             ><a href="/">Home</a></li>        
             <li
-              {% if 'main:connect' in request.path %}
+              {% if 'connect' in request.path %}
                 class="active"
               {% else %}
                 class=""
               {% endif %}
             ><a href="{% url 'main:connect' %}">Connect</a></li>
+            {% if user.is_authenticated %}
+              <li
+                {% if user.is_active %}
+                  class = "active"
+                {% else %}
+                  class = ""
+                {% endif %}
+              ><a href="#">{{ user.username }}</a></li>
+              <li><a href="{% url 'user:logout' %}">Logout</a></li>
+            {% else %}
+              <li
+                {% if 'register' in request.path %}
+                  class="active"
+                {% else %}
+                  class=""
+                {% endif %}
+              ><a href="{% url 'user:register' %}">Register</a></li>
+              <li
+                {% if 'login' in request.path %}
+                  class="active"
+                {% else %}
+                  class=""
+                {% endif %}
+              ><a href="{% url 'user:login' %}">Login</a></li>
+            {% endif %}
             <li><a href="#"></a></li>
             <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
+            
           </ul>
           <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" onclick="toggle()">
             <i class="material-icons">brightness_6</i>
@@ -53,33 +81,65 @@
         </li>
         <li><a href="/"><i class="material-icons">home</i>Home</a></li>
         <li><a href="{% url 'main:connect' %}"><i class="material-icons">contacts</i>Connect With Me</a></li>
+        {% if user.is_authenticated %}
+          <li
+            {% if user.is_active %}
+              class = "active"
+            {% else %}
+              class = ""
+            {% endif %}
+          ><a href="#">{{ user.username }}</a></li>
+          <li><a href="{% url 'user:logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'user:register' %}">Register</a></li>
+          <li><a href="{% url 'user:login' %}">Login</a></li>
+        {% endif %}
         <li><div class="divider"></div></li>
         <li><a class="subheader">Let's Connect</a></li>
         <li><a href="mailto:eyimofe36@gmail.com"><i class="fab fa-google"></i>Eyimofe36@gmail.com</a></li>
-        <li><a href="chat.whatsapp.com/+2348028769076"><i class="fab fa-whatsapp"></i>Anirejuoriste Pinnick Jnr</a></li>
-        <li><a href="www.instagram.com/pinnick_jnr/"><i class="fab fa-instagram"></i>Pinnick_Jnr</a></li>
-        <li><a href="twitter.com/thegeekish_nerd/"><i class="fab fa-twitter"></i>TheGeekish_Nerd</a></li>
+        <li><a href="https://chat.whatsapp.com/+2348028769076"><i class="fab fa-whatsapp"></i>Anirejuoriste Pinnick Jnr</a></li>
+        <li><a href="https://www.instagram.com/___eyimofe___/"><i class="fab fa-instagram"></i>___eyinofe___</a></li>
+        <li><a href="https://www.twitter.com/thegeekish_nerd/"><i class="fab fa-twitter"></i>TheGeekish_Nerd</a></li>
         <li><a href="tel:+2347053468080"><i class="fas fa-phone"></i>+234(0)-705-346-8080</a></li>
       </ul>
       <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
     </nav>   
-      
+
+      <!-- Django Message Template -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>
+            {% elif message.tags == 'info'%}
+                <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+            {% elif message.tags == 'warning'%}
+                <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>
+            {% elif message.tags == 'error'%}
+                <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if messages %}
+      <script type="text/javascript">alert("{{ message }}")</script>
+    {% endif %}
+
+
       {% block content %}
       {% endblock %}
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
     <script type="text/javascript">
-      function toggle(){
-     var el = document.getElementById("mystylesheet");
-     if (el.href.match("{% static 'css/style.css' %}")) {
+     function toggle(){
+      var el = document.getElementById("mystylesheet");
+      if (el.href.match("{% static 'css/style.css' %}")) {
           el.href = "{% static 'css/dark.css' %}";
-     }
-     else {
+      }
+      else {
           el.href = "{% static 'css/style.css' %}"
-     }
-}
+      }
+          }
     </script>
 </body>
 </html>

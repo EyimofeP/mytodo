@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="container">
+		<h2>User Login</h2>
+			<form method="POST" accept-charset="utf-8">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button class="btn" type="submit" style="background-color: #B71C1C;">Login</button>
+				<br>
+			</form>
+		<h6>If you don't have an account <a href="{% url 'user:register' %}"><strong>register</strong></a> instead</h6>
+	</div> 
+{% endblock %} 
